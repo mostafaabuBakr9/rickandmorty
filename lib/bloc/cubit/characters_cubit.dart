@@ -8,18 +8,18 @@ part 'characters_state.dart';
 
 class CharactersCubit extends Cubit<CharactersState> {
   final CharactersRepository charactersRepository;
-  List<Characters>? allCharacters;
+  List<Character> allCharacters = [];
 
   CharactersCubit(
     this.charactersRepository,
   ) : super(CharactersInitial());
-  List<Characters> getAllCharacters() {
+  List<Character> getAllCharacters() {
     charactersRepository.getAllCharacters().then(
       (characters) {
         emit(CharactersLoaded(characters: characters));
         allCharacters = characters.cast();
       },
     );
-    return allCharacters ?? [];
+    return allCharacters;
   }
 }

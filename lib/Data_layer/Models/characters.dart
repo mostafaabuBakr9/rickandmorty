@@ -2,7 +2,7 @@
 import 'package:rickandmorty/Data_layer/Models/location.dart';
 import 'package:rickandmorty/Data_layer/Models/origin.dart';
 
-class Characters {
+class Character {
   int id;
   String name;
   String status;
@@ -14,7 +14,7 @@ class Characters {
   // List<String> episode;
   String url;
   String created;
-  Characters({
+  Character({
     required this.id,
     required this.name,
     required this.status,
@@ -27,8 +27,8 @@ class Characters {
     required this.url,
     required this.created,
   });
-  factory Characters.fromJson(jsondata) {
-    return Characters(
+  factory Character.fromJson(jsondata) {
+    return Character(
       id: jsondata['id'],
       name: jsondata['name'],
       status: jsondata['status'],

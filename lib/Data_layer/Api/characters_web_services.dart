@@ -15,7 +15,6 @@ class CharactersWebServices {
   Future getAllCharacters() async {
     try {
       Response response = await dio.get('character');
-      print(response.data['results'].toString());
       return response.data['results'];
     } catch (e) {
       print(e.toString());
