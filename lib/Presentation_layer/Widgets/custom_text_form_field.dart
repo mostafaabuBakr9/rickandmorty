@@ -3,7 +3,13 @@ import 'package:rickandmorty/Data_layer/Models/characters.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final List<Character> allChaeacters;
-  CustomTextFormField({super.key, required this.allChaeacters});
+  Function(List<Character>) searchList;
+  TextEditingController searchtextcontroller = TextEditingController();
+  CustomTextFormField(
+      {super.key,
+      required this.allChaeacters,
+      required this.searchtextcontroller,
+      required this.searchList});
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -21,12 +27,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextField(
       controller: searchtextcontroller,
       cursorColor: Colors.black,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: 'Find A Character ...',
         border: InputBorder.none,
       ),
       onChanged: (value) {
         searchForItems(value);
+        widget.searchList(searchChaeacters);
       },
     );
   }

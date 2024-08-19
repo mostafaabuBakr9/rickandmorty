@@ -7,12 +7,15 @@ class CustomAppBar extends StatefulWidget {
   bool issearching;
   Function()? onPressed;
   final TextEditingController textEditingController;
+  Function(List<Character>) searchList;
+
   final List<Character> allChaeacters;
   CustomAppBar(
       {super.key,
       required this.issearching,
       required this.textEditingController,
       required this.allChaeacters,
+      required this.searchList,
       this.onPressed});
 
   @override
@@ -28,12 +31,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
       actions: [
         AppBarActionSearchIcon(
           isSearch: widget.issearching,
-          textEditingController: widget.textEditingController,
           onPressed: widget.onPressed,
         )
       ],
       title: widget.issearching
-          ? CustomTextFormField(allChaeacters: widget.allChaeacters)
+          ? CustomTextFormField(
+              allChaeacters: widget.allChaeacters,
+              searchtextcontroller: widget.textEditingController,
+              searchList: (p0) {
+                widget.searchList(p0);
+              },
+            )
           : const Text(
               'Rick and Morty',
               style:

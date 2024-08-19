@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppBarActionSearchIcon extends StatelessWidget {
-  final TextEditingController textEditingController;
   final bool isSearch;
   final Function()? onPressed;
   const AppBarActionSearchIcon(
-      {super.key,
-      required this.isSearch,
-      required this.textEditingController,
-      this.onPressed});
+      {super.key, required this.isSearch, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +13,5 @@ class AppBarActionSearchIcon extends StatelessWidget {
     } else {
       return IconButton(onPressed: onPressed, icon: const Icon(Icons.search));
     }
-  }
-
-  void clearSearch() {
-    textEditingController.clear();
   }
 }

@@ -20,15 +20,22 @@ class CharacterItem extends StatelessWidget {
           //  color: MyColors.grey
         ),
         child: GridTile(
-            footer: GridTileBar(
-              backgroundColor: Colors.black38,
-              title: Text(
+            footer: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              color: Colors.black54,
+              alignment: Alignment.bottomCenter,
+              child: Text(
                 character.name,
-                style: const TextStyle(
+                style: TextStyle(
+                  height: 1.3,
                   fontSize: 16,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                textAlign: TextAlign.center,
               ),
             ),
             header: GridTileBar(
@@ -39,6 +46,8 @@ class CharacterItem extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 backgroundColor: Colors.black26,
                 leading: CharacterStatus(character: character),

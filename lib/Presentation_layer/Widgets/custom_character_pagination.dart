@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pagination_flutter/pagination.dart';
 
 class CustomCharacterPagination extends StatefulWidget {
+  CustomCharacterPagination(
+      {super.key, required this.numOfPages, required this.pagenum});
+  Function(int num) pagenum;
   final int numOfPages;
-  const CustomCharacterPagination({super.key, required this.numOfPages});
 
   @override
   State<CustomCharacterPagination> createState() =>
@@ -21,6 +23,7 @@ class _CustomCharacterPaginationState extends State<CustomCharacterPagination> {
         pagesVisible: 3,
         onPageChanged: (page) {
           setState(() {
+            widget.pagenum(page);
             selectedPage = page;
           });
         },
@@ -59,6 +62,5 @@ class _CustomCharacterPaginationState extends State<CustomCharacterPagination> {
         ),
       ),
     );
-     
   }
 }

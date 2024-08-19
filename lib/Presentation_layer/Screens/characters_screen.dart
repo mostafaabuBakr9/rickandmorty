@@ -16,12 +16,13 @@ class CharactersScreen extends StatefulWidget {
 
 class _CharactersScreenState extends State<CharactersScreen> {
   List<Character> allChaeacters = [];
+  List<Character> searchList = [];
   TextEditingController textEditingController = TextEditingController();
 
   bool issearching = false;
   @override
   void initState() {
-    BlocProvider.of<CharactersCubit>(context).getAllCharacters(pageNumber: 20);
+    BlocProvider.of<CharactersCubit>(context).getAllCharacters(pageNumber: 1);
     super.initState();
   }
 
@@ -40,6 +41,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                   setState(() {
                     issearching = false;
                     stopSearching();
+                    searchList.clear();
                     Navigator.pop(context);
                   });
                 } else {
@@ -48,6 +50,10 @@ class _CharactersScreenState extends State<CharactersScreen> {
                     startSearch();
                   });
                 }
+              },
+              searchList: (p0) {
+                searchList = p0;
+                setState(() {});
               },
             )),
         body: BlocBuilder<CharactersCubit, CharactersState>(
@@ -61,11 +67,18 @@ class _CharactersScreenState extends State<CharactersScreen> {
                   Expanded(
                     child: SingleChildScrollView(
                       child: CharactersGridViewBuilder(
-                        characters: allChaeacters,
+                        characters: issearching ? searchList : allChaeacters,
                       ),
                     ),
                   ),
-                  const CustomCharacterPagination(
+                  CustomCharacterPagination(
+                    //Call Back Function To upadate page number in Block (rcive data from cild class CustomCharacterPagination)
+                    pagenum: (number) {
+                      setState(() {
+                        BlocProvider.of<CharactersCubit>(context)
+                            .getAllCharacters(pageNumber: number);
+                      });
+                    },
                     numOfPages: 42,
                   ),
                 ],
