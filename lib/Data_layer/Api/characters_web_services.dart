@@ -7,15 +7,15 @@ class CharactersWebServices {
     BaseOptions options = BaseOptions(
       baseUrl: baseUrl,
       receiveDataWhenStatusError: true,
-      connectTimeout: Duration(seconds: 20),
-      receiveTimeout: Duration(seconds: 20),
+      connectTimeout: const Duration(seconds: 20),
+      receiveTimeout: const Duration(seconds: 20),
     );
     dio = Dio(options);
   }
-  Future getAllCharacters() async {
+  Future getAllCharacters(String query) async {
     try {
-      Response response = await dio.get('character');
-      return response.data['results'];
+      Response response = await dio.get(query);
+      return response.data;
     } catch (e) {
       print(e.toString());
       return [];
