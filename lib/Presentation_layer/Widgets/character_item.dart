@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/Constants/colors.dart';
 import 'package:rickandmorty/Data_layer/Models/characters.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/character_status.dart';
 
@@ -64,26 +63,3 @@ class CharacterItem extends StatelessWidget {
             )));
   }
 }
-
-
-// Container(
-//             // height: double.minPositive,
-//             padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-//             color: MyColors.grey,
-//             alignment: Alignment.center,
-//             child: Row(
-//               children: [
-//                 Text(
-//                   '${character.status}-${character.gender}',
-//                   style: TextStyle(
-//                     fontSize: 16,
-//                     color: MyColors.white,
-//                     fontWeight: FontWeight.bold,
-//                   ),
-//                   overflow: TextOverflow.ellipsis,
-//                   maxLines: 2,
-//                   textAlign: TextAlign.center,
-//                 ),
-//               ],
-//             ),
-//           )

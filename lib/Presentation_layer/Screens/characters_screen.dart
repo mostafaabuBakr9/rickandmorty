@@ -74,7 +74,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
+      backgroundColor: Color.fromRGBO(255, 255, 255, 1),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
