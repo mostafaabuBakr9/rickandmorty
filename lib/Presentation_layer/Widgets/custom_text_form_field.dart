@@ -41,7 +41,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   void searchForItems(String value) {
     searchChaeacters = widget.allChaeacters
         .where(
-          (character) => character.name.toLowerCase().contains(value),
+          (character) =>
+              character.name.toLowerCase().contains(value.toLowerCase()),
         )
         .toList();
     setState(() {});
