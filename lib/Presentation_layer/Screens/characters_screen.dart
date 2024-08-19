@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/characters_grid_view_builder.dart';
-import 'package:rickandmorty/Presentation_layer/Widgets/custom_character_item.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/custom_loading_indicator.dart';
 import 'package:rickandmorty/bloc/cubit/characters_cubit.dart';
 
