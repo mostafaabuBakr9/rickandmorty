@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:rickandmorty/Data_layer/Models/characters.dart';
 
 import 'package:rickandmorty/Data_layer/Repository/characters_repository.dart';
 
@@ -14,8 +15,9 @@ class CharactersCubit extends Cubit<CharactersState> {
   void getAllCharacters({required int pageNumber}) {
     charactersRepository.getAllCharacters(pageNumber:pageNumber ).then(
       (characters) {
-        emit(CharactersLoaded(characters: characters));
+        emit(CharactersLoaded(character: characters.cast()));
       },
     );
+
   }
 }
