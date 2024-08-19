@@ -12,13 +12,23 @@ class CharactersWebServices {
     );
     dio = Dio(options);
   }
-  Future getAllCharacters(String query) async {
+  Future getAllCharacters({required String path}) async {
     try {
-      Response response = await dio.get(query);
-      return response.data;
+      Response response = await dio.get(path);
+      return response.data['results'];
     } catch (e) {
       print(e.toString());
       return [];
+    }
+  }
+
+  Future getCountofPages() async {
+    try {
+      Response response = await dio.get('character');
+      return response.data['info']['pages'];
+    } catch (e) {
+      print(e.toString());
+      return 0;
     }
   }
 }

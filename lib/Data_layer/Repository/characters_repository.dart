@@ -6,11 +6,18 @@ class CharactersRepository {
 
   CharactersRepository({required this.charactersWebServices});
 
-  Future<List<dynamic>> getAllCharacters() async {
-    final characters = await charactersWebServices.getAllCharacters();
+  Future<List<dynamic>> getAllCharacters({required int pageNumber}) async {
+    final characters = await charactersWebServices.getAllCharacters(
+        path: 'character?page=$pageNumber');
 
     return characters
         .map((characters) => Character.fromJson(characters))
         .toList();
+  }
+
+  Future getCountofPages() async {
+    final count = await charactersWebServices.getCountofPages();
+
+    return count;
   }
 }

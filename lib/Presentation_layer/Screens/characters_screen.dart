@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/characters_grid_view_builder.dart';
+import 'package:rickandmorty/Presentation_layer/Widgets/custom_character_pagination.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/custom_loading_indicator.dart';
 import 'package:rickandmorty/bloc_layer/cubit/characters_cubit.dart';
 
@@ -15,7 +16,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
   late List allChaeacters;
   @override
   void initState() {
-    BlocProvider.of<CharactersCubit>(context).getAllCharacters();
+    BlocProvider.of<CharactersCubit>(context).getAllCharacters(pageNumber: 5);
     super.initState();
   }
 
@@ -39,10 +40,19 @@ class _CharactersScreenState extends State<CharactersScreen> {
               allChaeacters = state.characters;
               // The Comment Line below i used to Check The List of Characters is not Empty
               // print(allChaeacters);
-              return SingleChildScrollView(
-                child: CharactersGridViewBuilder(
-                  characters: allChaeacters,
-                ),
+              return Column(
+                children: [
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: CharactersGridViewBuilder(
+                        characters: allChaeacters,
+                      ),
+                    ),
+                  ),
+                  const CustomCharacterPagination(
+                    numOfPages: 42,
+                  ),
+                ],
               );
             } else {
               return const CustomLoadingIndicator();
@@ -51,3 +61,5 @@ class _CharactersScreenState extends State<CharactersScreen> {
         ));
   }
 }
+
+
