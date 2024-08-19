@@ -13,6 +13,7 @@ class CharacterItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+        //The Line below use to cut any thing from child widget over from container
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),

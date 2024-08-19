@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rickandmorty/Constants/colors.dart';
-import 'package:rickandmorty/Presentation_layer/Widgets/character_item.dart';
+import 'package:rickandmorty/Presentation_layer/Widgets/custom_character_item.dart';
+import 'package:rickandmorty/Presentation_layer/Widgets/custom_loading_indicator.dart';
 import 'package:rickandmorty/bloc/cubit/characters_cubit.dart';
 
 class CharactersScreen extends StatefulWidget {
@@ -27,17 +27,9 @@ class _CharactersScreenState extends State<CharactersScreen> {
           print(allChaeacters);
           return buildLoadedListWidget();
         } else {
-          return showLoadingIndicator();
+          return const CustomLoadingIndicator();
         }
       },
-    );
-  }
-
-  Widget showLoadingIndicator() {
-    return Center(
-      child: CircularProgressIndicator(
-        color: MyColors.yellow,
-      ),
     );
   }
 
@@ -62,7 +54,6 @@ class _CharactersScreenState extends State<CharactersScreen> {
       shrinkWrap: true,
       itemCount: allChaeacters.length,
       physics: const ClampingScrollPhysics(),
-      // padding: EdgeInsets.all(value),
       itemBuilder: (context, index) {
         return CharacterItem(
           character: allChaeacters[index],
@@ -74,13 +65,13 @@ class _CharactersScreenState extends State<CharactersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text(
+        scrolledUnderElevation: 0,
+        title: const Text(
           'Rick and Morty',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Color.fromRGBO(0, 0, 0, 1)),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         centerTitle: true,
         elevation: 0,
