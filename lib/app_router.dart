@@ -5,7 +5,7 @@ import 'package:rickandmorty/Data_layer/Api/characters_web_services.dart';
 import 'package:rickandmorty/Data_layer/Repository/characters_repository.dart';
 import 'package:rickandmorty/Presentation_layer/Screens/character_details_screen.dart';
 import 'package:rickandmorty/Presentation_layer/Screens/characters_screen.dart';
-import 'package:rickandmorty/bloc/cubit/characters_cubit.dart';
+import 'package:rickandmorty/bloc_layer/cubit/characters_cubit.dart';
 
 class AppRouter {
   late CharactersRepository charactersRepository;

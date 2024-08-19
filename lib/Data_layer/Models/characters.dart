@@ -11,7 +11,6 @@ class Character {
   Origin origin;
   Location location;
   String image;
-  // List<String> episode;
   String url;
   String created;
   Character({
@@ -23,7 +22,6 @@ class Character {
     required this.origin,
     required this.location,
     required this.image,
-    // required this.episode,
     required this.url,
     required this.created,
   });

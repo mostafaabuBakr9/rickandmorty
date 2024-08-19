@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/characters_grid_view_builder.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/custom_loading_indicator.dart';
-import 'package:rickandmorty/bloc/cubit/characters_cubit.dart';
+import 'package:rickandmorty/bloc_layer/cubit/characters_cubit.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key});
