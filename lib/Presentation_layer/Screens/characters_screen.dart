@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rickandmorty/Presentation_layer/Widgets/characters_grid_view_builder.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/custom_character_item.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/custom_loading_indicator.dart';
 import 'package:rickandmorty/bloc/cubit/characters_cubit.dart';
@@ -19,64 +20,35 @@ class _CharactersScreenState extends State<CharactersScreen> {
     super.initState();
   }
 
-  Widget buildBlocWidget() {
-    return BlocBuilder<CharactersCubit, CharactersState>(
-      builder: (context, state) {
-        if (state is CharactersLoaded) {
-          allChaeacters = state.characters;
-          print(allChaeacters);
-          return buildLoadedListWidget();
-        } else {
-          return const CustomLoadingIndicator();
-        }
-      },
-    );
-  }
-
-  Widget buildLoadedListWidget() {
-    return SingleChildScrollView(
-      child: Container(
-        // color: MyColors.grey,
-        child: Column(
-          children: [buildCharactersList()],
-        ),
-      ),
-    );
-  }
-
-  Widget buildCharactersList() {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 0.698,
-          crossAxisSpacing: 1,
-          mainAxisSpacing: 1),
-      shrinkWrap: true,
-      itemCount: allChaeacters.length,
-      physics: const ClampingScrollPhysics(),
-      itemBuilder: (context, index) {
-        return CharacterItem(
-          character: allChaeacters[index],
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        scrolledUnderElevation: 0,
-        title: const Text(
-          'Rick and Morty',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          scrolledUnderElevation: 0,
+          title: const Text(
+            'Rick and Morty',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          centerTitle: true,
+          elevation: 0,
         ),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: buildBlocWidget(),
-    );
+        body: BlocBuilder<CharactersCubit, CharactersState>(
+          builder: (context, state) {
+            if (state is CharactersLoaded) {
+              allChaeacters = state.characters;
+              // The Comment Line below i used to Check The List of Characters is not Empty
+              // print(allChaeacters);
+              return SingleChildScrollView(
+                child: CharactersGridViewBuilder(
+                  characters: allChaeacters,
+                ),
+              );
+            } else {
+              return const CustomLoadingIndicator();
+            }
+          },
+        ));
   }
 }
