@@ -4,7 +4,12 @@ A new Flutter project.
 
 App Demp
 
-The Packages I Used In This App 1-flutter\_bloc2-google\_fonts3-pagination\_flutter
+The Packages I Used In This App 
+##1-flutter\_bloc
+
+##2-google\_fonts
+
+##3-pagination\_flutter
 
 https://github.com/user-attachments/assets/8434a831-1d79-48e6-9bb1-8a5f543f22b1
 
