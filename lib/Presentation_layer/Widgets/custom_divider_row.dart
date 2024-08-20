@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class CustomDividerRow extends StatelessWidget {
   final String textValue;
-  CustomDividerRow({super.key, required this.textValue});
+  const CustomDividerRow({super.key, required this.textValue});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: Divider(
             height: 10,
             thickness: 1,
@@ -19,9 +19,9 @@ class CustomDividerRow extends StatelessWidget {
         ),
         Text(
           textValue,
-          style: TextStyle(color: Colors.black, fontSize: 15),
+          style: const TextStyle(color: Colors.black, fontSize: 15),
         ),
-        Expanded(
+        const Expanded(
             child: Divider(
           height: 10,
           thickness: 1,

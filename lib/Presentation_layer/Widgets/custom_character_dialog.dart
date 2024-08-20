@@ -7,7 +7,7 @@ import 'package:rickandmorty/Presentation_layer/Widgets/custom_row.dart';
 
 class CustomCharacterDialog extends StatelessWidget {
   final Character character;
-  CustomCharacterDialog({super.key, required this.character});
+  const CustomCharacterDialog({super.key, required this.character});
 
   @override
   Widget build(BuildContext context) {
@@ -41,17 +41,17 @@ class CustomCharacterDialog extends StatelessWidget {
               children: [
                 Text(
                   character.name,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                CustomDividerRow(textValue: 'PROPERTIES'),
+                const CustomDividerRow(textValue: 'PROPERTIES'),
                 const SizedBox(
                   height: 10,
                 ),
                 CustomRow(property: 'Gender', value: character.gender),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 CustomRow(property: 'Species', value: character.species),
@@ -62,7 +62,7 @@ class CustomCharacterDialog extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                CustomDividerRow(textValue: 'WHEREABOUTS'),
+                const CustomDividerRow(textValue: 'WHEREABOUTS'),
                 const SizedBox(
                   height: 10,
                 ),

@@ -3,7 +3,7 @@ import 'package:rickandmorty/Presentation_layer/Widgets/custom_character_item.da
 
 class CharactersGridViewBuilder extends StatelessWidget {
   final List characters;
-  CharactersGridViewBuilder({super.key, required this.characters});
+  const CharactersGridViewBuilder({super.key, required this.characters});
 
   @override
   Widget build(BuildContext context) {

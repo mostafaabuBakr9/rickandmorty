@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/Data_layer/Models/characters.dart';
 
+// ignore: must_be_immutable
 class CustomTextFormField extends StatefulWidget {
   final List<Character> allChaeacters;
   Function(List<Character>) searchList;

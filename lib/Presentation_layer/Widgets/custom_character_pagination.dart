@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pagination_flutter/pagination.dart';
 
+// ignore: must_be_immutable
 class CustomCharacterPagination extends StatefulWidget {
   CustomCharacterPagination(
       {super.key, required this.numOfPages, required this.pagenum});

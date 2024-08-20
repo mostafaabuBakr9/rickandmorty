@@ -3,6 +3,7 @@ import 'package:rickandmorty/Data_layer/Models/characters.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/app_bar_action_Search_icon.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/custom_text_form_field.dart';
 
+// ignore: must_be_immutable
 class CustomAppBar extends StatefulWidget {
   bool issearching;
   Function()? onPressed;

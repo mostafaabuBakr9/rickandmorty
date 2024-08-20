@@ -5,10 +5,10 @@ import 'package:rickandmorty/Data_layer/Models/characters.dart';
 
 class CharacterStatus extends StatelessWidget {
   final Character character;
-  CharacterStatus({
-    Key? key,
+  const CharacterStatus({
+    super.key,
     required this.character,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

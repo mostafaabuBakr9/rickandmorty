@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/Data_layer/Models/characters.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/character_status.dart';
@@ -36,12 +34,13 @@ class CharacterItem extends StatelessWidget {
           child: GridTile(
               footer: Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 color: Colors.black54,
                 alignment: Alignment.bottomCenter,
                 child: Text(
                   character.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     height: 1.3,
                     fontSize: 16,
                     color: Colors.white,
