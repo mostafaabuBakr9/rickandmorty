@@ -1,34 +1,29 @@
-# rickandmorty
+# Rick And Morty Flutter App
 
-A new Flutter project.
+I created this application to train on receiving data from Api with (Dio) and how to control the State Management with (bloc)
+this App is recive data form [Rick And Morty Api](https://rickandmortyapi.com) this Api it is contain information about all the characters who appeared in all episodes Like
+
+1-Name Of Character
+
+2-Status Of Character
+
+3-species Of Character
+
+4-Type Of Character
 
 
-The Packages I Used In This App 
 
-1-flutter\_bloc
+https://rickandmortyapi.com/
 
-2-google\_fonts
+## The Packages I Used In This App 
+#### For Fetching Data From Api - [Dio](https://pub.dev/packages/dio) 
+#### For State Management - [flutter\_bloc](https://pub.dev/packages/flutter_bloc)
+#### For Use Google fonts In App- [google\_fonts](https://pub.dev/packages/google_fonts)
+#### for pagination of characters - [pagination\_flutter](https://pub.dev/packages/pagination_flutter)
 
-3-pagination\_flutter
-
-The State Mangement I Used In This App 
-
-bloc_Flutter 
-
-App Demp
-
+## App Demp
 
 https://github.com/user-attachments/assets/8434a831-1d79-48e6-9bb1-8a5f543f22b1
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
