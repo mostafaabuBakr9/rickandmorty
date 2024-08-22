@@ -20,6 +20,7 @@ https://rickandmortyapi.com/
 #### For State Management - [flutter\_bloc](https://pub.dev/packages/flutter_bloc)
 #### For Use Google fonts In App- [google\_fonts](https://pub.dev/packages/google_fonts)
 #### for pagination of characters - [pagination\_flutter](https://pub.dev/packages/pagination_flutter)
+#### for Hide pagination when Scrolling down - [scroll\_to\_hide](https://pub.dev/packages/scroll_to_hide)
 
 ## App Demp
 
