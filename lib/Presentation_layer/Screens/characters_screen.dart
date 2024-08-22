@@ -6,6 +6,7 @@ import 'package:rickandmorty/Presentation_layer/Widgets/custom_app_bar.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/custom_character_pagination.dart';
 import 'package:rickandmorty/Presentation_layer/Widgets/custom_loading_indicator.dart';
 import 'package:rickandmorty/bloc_layer/cubit/characters_cubit.dart';
+import 'package:scroll_to_hide/scroll_to_hide.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key});
@@ -18,7 +19,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
   List<Character> allChaeacters = [];
   List<Character> searchList = [];
   TextEditingController textEditingController = TextEditingController();
-
+  ScrollController scrollController = ScrollController();
   bool issearching = false;
   @override
   void initState() {
@@ -27,9 +28,16 @@ class _CharactersScreenState extends State<CharactersScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    scrollController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
+        // Iam Created this widget when i faced problem {PreferredSizeWidget? appBar}
         appBar: PreferredSize(
             preferredSize: const Size.fromHeight(kToolbarHeight),
             child: CustomAppBar(
@@ -65,21 +73,26 @@ class _CharactersScreenState extends State<CharactersScreen> {
               return Column(
                 children: [
                   Expanded(
-                    child: SingleChildScrollView(
-                      child: CharactersGridViewBuilder(
-                        characters: issearching ? searchList : allChaeacters,
-                      ),
+                    child: CharactersGridViewBuilder(
+                      controller: scrollController,
+                      characters: issearching ? searchList : allChaeacters,
                     ),
                   ),
-                  CustomCharacterPagination(
-                    //Call Back Function To upadate page number in Block (rcive data from cild class CustomCharacterPagination)
-                    pagenum: (number) {
-                      setState(() {
-                        BlocProvider.of<CharactersCubit>(context)
-                            .getAllCharacters(pageNumber: number);
-                      });
-                    },
-                    numOfPages: 42,
+                  ScrollToHide(
+                    hideDirection: Axis.vertical,
+                    
+                    height: 50,
+                    scrollController: scrollController,
+                    child: CustomCharacterPagination(
+                      //Call Back Function To upadate page number in Block (rcive data from cild class CustomCharacterPagination)
+                      pagenum: (number) {
+                        setState(() {
+                          BlocProvider.of<CharactersCubit>(context)
+                              .getAllCharacters(pageNumber: number);
+                        });
+                      },
+                      numOfPages: 42,
+                    ),
                   ),
                 ],
               );
